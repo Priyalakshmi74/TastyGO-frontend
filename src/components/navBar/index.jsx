@@ -1,5 +1,5 @@
 import React from "react";
-import {AiOutlineMenu} from "react-icons/ai";
+import {AiOutlineMenu, AiOutlineSearch} from "react-icons/ai";
 
 function Navbar() {
   return (
@@ -15,7 +15,12 @@ function Navbar() {
           <p className="bg-black rounded-full text-white p-1">Delivery</p>
           <p className="px-2">Pickup</p>
         </div>
+        
       </div>
+      <div className="flex items-center ml-10 rounded-full bg-gray-200 p-1 w-[200px] sm:w-[400px]">
+            <AiOutlineSearch size={20}/>
+            <input type="text" className="p-1 w-full bg-transparent focus:outline-none" placeholder="Search"/>
+        </div>
     </div>
   );
 }
