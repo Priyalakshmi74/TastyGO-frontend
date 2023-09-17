@@ -6,12 +6,18 @@ import { FaWallet, FaUserFriends } from "react-icons/fa";
 import { MdFavorite, MdFoodBank, MdHelp } from "react-icons/md";
 
 function Navbar() {
+
   const [nav, setNav] = React.useState(false);
+
+  const handleNavToggle = () => {
+    setNav(!nav);
+  }
+
   return (
     <div className="max-w-[1600px] mx-auto flex justify-between items-center p-1">
       <div className="flex items-center">
         <div className="cursor-pointer ">
-          <AiOutlineMenu size={30} onClick={() => setNav(!nav)} />
+          <AiOutlineMenu size={30} onClick={handleNavToggle} />
         </div>
         <h1 className="text-2xl px-4 sm:text-3xl lg:text-4xl flex items-center">
           Tasty
@@ -53,7 +59,7 @@ function Navbar() {
         <AiOutlineClose
           size={30}
           className="absolute right-4 top-4 cursor-pointer"
-          onClick={() => setNav(!nav)}
+          onClick={handleNavToggle}
         />
         <h1 className="text-2xl px-4 flex items-center mt-6 text-semi-bold">
           Tasty
