@@ -24,10 +24,10 @@ function Card() {
     <div className="max-w-[1640px] mx-auto p-4 py-10 grid md:grid-cols-3 gap-5">
       {cards.map((card) => (
         <div key={card.title} className="relative rounded-xl">
-          <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
+          <div className="absolute w-full h-full bg-black/50 text-white rounded-xl text-center">
             <p className="text-2xl px-2 font-bold pt-12">{card.title}</p>
-            <p className="text-xl px-2 ">{card.description}</p>
-            <button className="border-white bg-white bottom-8 text-black p-2 rounded-xl mt-4 hover:bg-black/50 hover:text-white ">
+            <p className="text-xl px-2">{card.description}</p>
+            <button className="border-white bg-white bottom-8 text-black p-2 rounded-xl mt-4 hover:bg-black/50 hover:text-white">
               Order Now
             </button>
           </div>

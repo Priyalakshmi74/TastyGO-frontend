@@ -1,20 +1,19 @@
 
-import './App.css'
-import Card from './components/card'
-import Dish from './components/dishes'
-import Navbar from './components/navBar'
-import Welcome from './components/welcome'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import AddToCart from './pages/AddToCart';
 
 function App() {
-
   return (
-    <div className="App">
-      <Navbar/>
-      <Welcome/>
-      <Card/>
-      <Dish/>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/addtocart" element={<AddToCart />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+
+
+export default App;
