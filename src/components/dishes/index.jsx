@@ -6,20 +6,21 @@ const Dish =()=>{
   const navigate = useNavigate();
     const[ dishes, setDishes]=useState(foodData);
     console.log(foodData);
- const filterType=(category)=>{
+    
+  const filterType=(category)=>{
      const newDishes=foodData.filter((item)=>item.category===category);
      setDishes(newDishes);
      console.log(newDishes);
 
  }
- const filterPrice=(price)=>{
+  const filterPrice=(price)=>{
     const newDishes=foodData.filter((item)=>item.price===price);
     setDishes(newDishes);
     console.log("newDishes",newDishes);
 
  }
 
- const handleAddToCart = (item) => {
+  const handleAddToCart = (item) => {
   navigate('/addtocart', { state: { item } });
 }
   

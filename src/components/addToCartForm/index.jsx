@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 function AddToCartForm({ product, onAddToCart }) {
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(product.price);
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      onAddToCart(product,product.price, quantity, totalPrice);
+    };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onAddToCart(product, quantity);
-  };
   useEffect(() => {
     const priceWithoutCurrency = Number(
       product.price.replace(/[^0-9.-]+/g, "")

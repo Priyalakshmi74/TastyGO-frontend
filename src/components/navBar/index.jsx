@@ -4,13 +4,16 @@ import { BsFillCartFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaWallet, FaUserFriends } from "react-icons/fa";
 import { MdFavorite, MdFoodBank, MdHelp } from "react-icons/md";
-
+import { useLocation,useNavigate } from "react-router-dom";
 function Navbar() {
 
   const [nav, setNav] = React.useState(false);
-
+  const navigate = useNavigate();
   const handleNavToggle = () => {
     setNav(!nav);
+  }
+  const handleCart = () => {
+    navigate('/cart' );
   }
 
   return (
@@ -42,7 +45,7 @@ function Navbar() {
           placeholder="Search"
         />
       </div>
-      <button className="hidden items-center bg-black text-white  md:flex rounded-full p-1 px-3 mr-0">
+      <button className="hidden items-center bg-black text-white  md:flex rounded-full p-1 px-3 mr-0" onClick={() => {handleCart()}}>
         <BsFillCartFill size={20} className="mr-2" />
         Cart
       </button>
