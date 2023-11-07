@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import AddToCartForm from "../components/addToCartForm";
+import {useNavigate } from "react-router-dom";
 
-function YourComponent() {
+
+function CartItems() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleGetItems = async () => {
     setLoading(true);
@@ -42,6 +44,11 @@ function YourComponent() {
       console.error(error);
     }
   };
+
+  const handleCheckOut = () => {
+    navigate('/checkout');
+  }
+
   useEffect(() => {
     handleGetItems();
   }, []); // Fetch cart items when the component mounts
@@ -91,7 +98,7 @@ function YourComponent() {
             .reduce((total, item) => total + item.totalOfItem, 0)
             .toFixed(2)}
         </p>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-600">
+        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-600" onClick={() => handleCheckOut()}>
           Proceed to Checkout
         </button>
       </div>
@@ -99,4 +106,4 @@ function YourComponent() {
   );
 }
 
-export default YourComponent;
+export default CartItems;
