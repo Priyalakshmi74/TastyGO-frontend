@@ -28,6 +28,7 @@ function AddToCart() {
                 priceOfItem: numericPrice, 
                 quantity: quantity,
                 totalOfItem: totalPrice,
+                imageURL: product.image
               }),
             });
             console.log("response", response);
