@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import AddToCartForm from "../components/addToCartForm";
 
 function YourComponent() {
   const [cartItems, setCartItems] = useState([]);
@@ -21,6 +22,7 @@ function YourComponent() {
       setLoading(false);
     }
   };
+
   const handleDeleteItem = async (itemID) => {
     console.log("itemID", itemID);
     try {
@@ -40,21 +42,17 @@ function YourComponent() {
       console.error(error);
     }
   };
+  useEffect(() => {
+    handleGetItems();
+  }, []); // Fetch cart items when the component mounts
 
   return (
     <div className="container mx-auto p-4">
       <h2>Cart Items</h2>
-      <button
-        className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-600"
-        onClick={handleGetItems}
-        disabled={loading}
-      >
-        Show Cart Items
-      </button>
-      <h2 className="text-3xl font-semibold mb-4">Shopping Cart</h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {cartItems.map((item) => (
-          <div key={item.id} className="bg-white border rounded-lg">
+          <div key={item.itemId} className="bg-white border rounded-lg">
             <div className="flex justify-between mb-2">
               <img
                 src={item.imageURL}
@@ -74,12 +72,7 @@ function YourComponent() {
               </p>
             </div>
             <div className="flex justify-between m-2">
-              <button
-                className="text-red-500 hover:text-red-700"
-                onClick={() => handleDeleteItem(item.itemId)}
-              >
-                Edit
-              </button>
+              <button className="text-red-500 hover:text-red-700">Edit</button>
 
               <button
                 className="text-red-500 hover:text-red-700 ml-[70%]"
